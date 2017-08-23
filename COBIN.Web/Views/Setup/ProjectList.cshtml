@@ -1,0 +1,113 @@
+﻿@model IEnumerable<COBIN.DAL.sPlsSVQHeaders_Result>
+@{
+    ViewBag.Title = "Users List";
+    int i = 0;
+}
+<table id="tblHead">
+    <tr>
+        <td>
+            <b>Project List</b>
+        </td>
+        <td class="right">
+           @Html.ActionLink(" ", "Create", "Setup", null, new { @class = "clsaddnew", title = "Add New Project" })
+    </tr>
+</table>
+<table>
+    <thead>
+        <tr>
+            <th>
+                S.N.
+            </th>
+            <th>
+                Project Name
+            </th>
+            <th>
+                Project Code
+            </th>
+            <th>
+                Instruction
+            </th>
+            <th>
+                Misc. Info
+            </th>
+            <th>
+                Created By
+            </th>
+            <th>
+                Created Date
+            </th>
+            <th>
+                Operations
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null)
+        {
+
+            foreach (var item in Model)
+            {
+                string cls;
+                if ((i++ % 2) == 0)
+                {
+                    cls = "class=light";
+                }
+                else
+                {
+                    cls = "class=dark";
+                }
+
+            <tr @cls>
+                <td>
+                    @i
+                </td>
+                <td>
+                    @Html.HiddenFor(modelItem => item.Id)
+                   <b>@Html.DisplayFor(modelItem => item.Survey_Name)</b> 
+                </td>
+                <td>
+                   <b> @Html.DisplayFor(modelItem => item.Survey_Code)</b>
+                </td>
+                <td>
+                   <b> @Html.DisplayFor(modelItem => item.Survey_Instructions)</b>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Miscellaneous_Info)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreatedBy)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreatedDate)
+                </td>
+                <td>
+                    @*@Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "clsview", title = "View Details" })*@
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "clsedit", title = "Edit Details" })
+                    @Html.ActionLink("Section Details", "Index", "Sections", new { Id = item.Id }, new { @class = "clsbranch", title = "Sections List" })
+                </td>
+            </tr>
+   
+            }
+        }
+        @if (Model == null || i == 0)
+        {
+         
+            <tr class="nohover">
+                <td colspan="6">
+                    No Records Found.
+                </td>
+            </tr>
+           
+        }
+    </tbody>
+</table>
+@section Scripts {
+    @if (@ViewBag.IsPopup == "y")
+    {
+        <script type="text/javascript">
+            $(window).load(function () {
+                DisplayConfirmation('Information', '@ViewBag.Message', 'info');
+            });
+        </script>
+    }
+}

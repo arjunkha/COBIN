@@ -1,0 +1,150 @@
+﻿@model COBIN.Web.Models.InterviewModels
+<style type="text/css" media="all">
+    .full
+    {
+        width: 50%;
+        position: fixed;
+    }
+        fieldset { border:1px solid purple }
+
+        legend {
+          padding: 0.2em 0.5em;
+          border:2px solid purple;
+          color:purple;
+          font-size:90%;
+          text-align:right;
+          }
+    .display-label
+    {
+        text-align: left;
+        vertical-align: top;
+        margin: 2px;
+        padding: 3px;
+        font-weight: normal;
+    }
+    .display-field
+    {
+        font-weight: bold;
+        margin: 2px;
+        padding: 3px;
+    }
+</style>
+@using (Html.BeginForm("Index", "Interview", FormMethod.Post))
+{
+    @Html.ValidationSummary(true)
+    @Html.AntiForgeryToken()   
+    <table class="Form2cols">
+        <thead>
+            <tr>
+                <th>
+                    Participant Interview
+                </th>
+            </tr>
+        </thead>
+        <tr>
+            <td>
+                <table>
+                    <tr>
+                        <td>
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.ProjectId)
+                            </div>
+                            <div class="editor-field">
+                                    @Html.DropDownListFor(model => model.ProjectId, COBIN.Web.Classes.ClsListData.GetProjectList(null), new { style = "width:150px;" })
+                                    @Html.ValidationMessageFor(model => model.ProjectId)
+                            </div>
+                                                             
+                                <div class="editor-label">
+                                    <b>@Html.LabelFor(model => model.Participant_Id)</b>
+                                </div>
+                                <div class="editor-field">
+                                    @Html.TextBoxFor(model => model.Participant_Id, new { autocomplete = "off" })
+                                    @Html.ValidationMessageFor(model => model.Participant_Id)
+                                </div>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" value="Submit" />
+            </td>
+        </tr>
+    </table>
+
+   
+}
+</br>
+@if (Model != null)
+{
+// If Validation is sucessfull - Create Form and Submit it 
+    using (Html.BeginForm("IntvSession", "Interview", FormMethod.Post))
+    {
+         @Html.AntiForgeryToken()  
+    <fieldset class="full">
+        <legend>Participant Details</legend>
+        <div class="display-label">
+            @Html.HiddenFor(model => Model.ProjectId)
+            @Html.HiddenFor(model => Model.Participant_Id)
+
+            @Html.LabelFor(model => model.Participant_Id)
+            
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Participant_Id)
+        </div>
+        @if (Model.First_Name != null)
+        {
+            <div class="display-label">
+                @Html.LabelFor(model => model.First_Name)
+            </div>
+            <div class="display-field">
+                @Html.DisplayFor(model => model.First_Name)
+            </div>
+           <div class="display-label">
+                @Html.LabelFor(model => model.Last_Name)
+            </div>
+            <div class="display-field">
+                @Html.DisplayFor(model => model.Last_Name)
+            </div>
+             <div class="display-label">
+                @Html.LabelFor(model => model.Address)
+            </div>
+            <div class="display-field">
+                @Html.DisplayFor(model => model.Address)
+            </div>
+            @* <div class="display-label">
+                @Html.LabelFor(model => model.Address2)
+            </div>
+            <div class="display-field">
+                @Html.DisplayFor(model => model.Address2)
+            </div>
+            <div class="display-label">
+                @Html.LabelFor(model => model.DOB)
+            </div>
+            <div class="display-field">
+                @Html.DisplayFor(model => model.DOB)
+            </div>*@
+            <div class="display-label">
+            
+                <b>Click Play Icon to Start Interview Session:</b>  @*@Html.ActionLink(" ", "InterviewSession", "Interview", null, new { @class = "clsstart", title = "Start Interview Session" })*@
+            <input type="image" src="../Images/NavIcons/start.png" alt="Go" width="24" height="24">
+            </div>
+        }
+        else
+        {
+            <div class="display-label" style="font-weight:bold;color:Red">
+                Verification Unsuccessful.
+            </div>
+            <div class="display-field">
+                (Error : Participant not found in the system.)
+            </div>
+        }
+    </fieldset>
+    }
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/CobinFunctions")
+}

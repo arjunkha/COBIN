@@ -1,0 +1,129 @@
+﻿@model IEnumerable<COBIN.DAL.sPlsSVQQuestions_Result>
+@{
+    ViewBag.Title = "Question List";
+    int SectionId = ViewBag.SectionId;
+    int i = 0;
+}
+<table id="tblHead">
+    <tr>
+        <td>
+            <b>Question List</b>
+        </td>
+        <td class="right">
+            @Html.ActionLink(" ", "Create", "Questions", new { Id = SectionId }, new { @class = "clsaddnew", title = "Add New Question" })
+            
+        </td>
+    </tr>
+</table>
+<table>
+    <thead>
+        <tr>
+            <th>
+                S.N.
+            </th>
+            <th>
+                Section Name
+            </th>
+            <th>
+                Question Name
+            </th>
+            <th>
+                Question SubText
+            </th>
+            <th>
+                Question Code
+            </th>
+            <th>
+               Measurement Unit
+            </th>
+            <th>
+                Created By
+            </th>
+            <th>
+                Created Date
+            </th>
+            <th>
+                Operations
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null)
+        {
+
+            foreach (var item in Model)
+            {
+                string cls;
+                if ((i++ % 2) == 0)
+                {
+                    cls = "class=light";
+                }
+                else
+                {
+                    cls = "class=dark";
+                }
+
+            <tr @cls>
+                <td>
+                    @i
+                </td>
+                <td>
+                    @Html.HiddenFor(modelItem => item.Id)
+                   <b>@Html.DisplayFor(modelItem => item.Section_Name)</b> 
+                </td>
+                <td>
+                   <b> @Html.DisplayFor(modelItem => item.Question_Name)</b>
+                </td>
+                <td>
+                   <b> @Html.DisplayFor(modelItem => item.Question_Subtext)</b>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Question_Code)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Measurement_Unit)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreatedBy)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreatedDate)
+                </td>
+                <td>
+                
+                    @*@Html.ActionLink("Add", "Create",new { SectionId = item.Id_SVQ_Sections }, new { @class = "clsaddnew", title = "Add New Question" })*@
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "clsedit", title = "Edit Question" })
+<a href="javascript: DisplayConfirmation('Confirmation', 'Are You Sure you want to delete ?', 'confirm', '/Questions/Delete/' +@item.Id+'?SectionId='+@item.Id_SVQ_Sections);" class="clsdelete" >
+ 
+                            delete</a>
+                    
+                </td>
+            </tr>
+   
+            }
+        }
+        @if (Model == null || i == 0)
+        {
+         
+            <tr class="nohover">
+                <td colspan="6">
+                    No Records Found.
+                </td>
+            </tr>
+           
+        }
+    </tbody>
+</table>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/CobinFunctions")
+
+    @if (@ViewBag.IsPopup == "y")
+    {
+        <script type="text/javascript">
+            $(window).load(function () {
+                DisplayConfirmation('Information', '@ViewBag.Message', 'info');
+            });
+        </script>
+    }
+}

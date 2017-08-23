@@ -1,0 +1,409 @@
+﻿html
+{
+    margin: 0;
+    padding: 0;
+}
+body
+{
+    margin: 0 auto;
+    padding: 0;
+    font-family: Arial,Helvetica,Verdana,sans-serif;
+    font-size: 13px;
+}
+input[type="submit"], input[type="button"], button
+{
+    background-color: #4f2684;
+    border: 1px solid #4f2684;
+    cursor: pointer;
+    font-weight: 600;
+    color: #FFFFFF;
+    font: bold 13px Open Sans,Arial,sans-serif;
+    padding: 2px;
+    margin-right: 8px;
+    width: auto;
+}
+#banner
+{
+    /*position: absolute;*/
+    top: 0;
+    left: 0;
+    width: 100%; /*height: 130px; Height of frame div*/ /*overflow: hidden; Disable scrollbars. Set to "scroll" to enable*/
+}
+#header
+{
+    min-width: 1082px;
+}
+#header .logo
+{
+    height: 80px;
+    margin: 5px;
+    float: left;
+}
+#company
+{
+    float: left;
+    margin-top: 5px;
+    line-height: 16px;
+}
+#content
+{
+    /*position: relative;*/
+    top: 140px;
+    left: 0;
+    right: 0;
+    bottom: 30px;
+    min-width: 1022px;
+    width: 100%;
+    overflow: auto;
+}
+.contentinner
+{
+    margin: 10px 40px; /*Margins for inner DIV inside each DIV (to provide padding)*/
+}
+#footer
+{
+    position:fixed; 
+    bottom: 0px;
+    width: 100%;
+    background: #dfdcdc;
+    text-align: center;
+    padding: 7px 0;
+    color: #666666;
+    z-index: 3;
+}
+#loading
+{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    vertical-align: middle;
+    z-index: 2000;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.6) url(/Images/ajax-loader.gif) no-repeat center center;
+    overflow: hidden;
+}
+.clear
+{
+    clear: both;
+}
+
+a.clsedit
+{
+    background: url(../Images/NavIcons/edit.png) no-repeat top left;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    margin-left: 10px;
+    text-indent: -9999px; /* hides the link text */
+}
+
+a.clsaddnew
+{
+    background: url(../Images/NavIcons/add-row.png) no-repeat top left;
+    width: 26px;
+    height: 26px;
+    display: inline-block;
+    margin-left: 10px;
+    text-indent: 9999px; /* hides the link text */
+}
+
+a.clsstart
+{
+    background: url(../Images/NavIcons/start.png) no-repeat top left;
+    width: 26px;
+    height: 26px;
+    display: inline-block;
+    margin-left: 10px;
+    text-indent: 9999px; /* hides the link text */
+}
+
+a.clsview
+{
+    background: url(../Images/NavIcons/view.png) no-repeat top left;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    margin-left: 10px;
+    text-indent: -9999px; /* hides the link text */
+}
+
+a.clsdelete
+{
+    background: url(../Images/NavIcons/delete_red.png) no-repeat top left;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    margin-left: 10px;
+    text-indent: -9999px; /* hides the link text */
+}
+a.clsdcclear
+{
+    background: url(../Images/Icons/dc_clear.png) no-repeat top left;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    margin-left: 10px;
+    text-indent: -9999px; /* hides the link text */
+}
+a.clsadd
+{
+    background: url(../Images/NavIcons/add-row.png) no-repeat top left;
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    margin: 0 5px;
+    text-indent: 9999px; /* hides the link text */
+    overflow: hidden;
+    display:none;
+}
+a.clsaddcus
+{
+    background: url(../Images/Icons/add_row.png) no-repeat bottom left;
+    width: 50px;
+    height: 25px;
+    display: inline-block;
+    margin: 0 260px;
+    text-indent: 9999px; /* hides the link text */
+    overflow: hidden;
+}
+a.clspassword
+{
+    background: url(../Images/NavIcons/password.png) no-repeat top left;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    margin-left: 10px;
+    text-indent: -9999px; /* hides the link text */
+}
+a.clsbranch
+{
+    background: url(../Images/NavIcons/branch.png) no-repeat top left;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    margin-left: 10px;
+    text-indent: -9999px; /* hides the link text */
+}
+a.clsexcel
+{
+    background: url(../Images/Icons/excel.png) no-repeat bottom left;
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    margin: 0 5px;
+    text-indent: 9999px; /* hides the link text */
+    overflow: hidden;
+    display:none;
+}
+a.clsapprove
+{
+    background: url(../Images/Icons/approve.png) no-repeat top left;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    margin-left: 10px;
+    text-indent: -9999px; /* hides the link text */
+}
+a.clsdcapprove
+{
+    background: url(../Images/Icons/Assign.png) no-repeat top left;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    margin-left: 10px;
+    text-indent: -9999px; /* hides the link text */
+}
+a.clsrefresh
+{
+    background: url(../Images/Icons/refresh.png) no-repeat top left;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    margin-left: 10px;
+    text-indent: 9999px; /* hides the link text */
+}
+a.clsunlock
+{
+    background: url(../Images/Icons/unlock.png) no-repeat top left;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    margin-left: 10px;
+    text-indent: -9999px; /* hides the link text */
+}
+a.clsbrowse
+{
+    background: url(../Images/Icons/browse.png) no-repeat top left;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    margin-left: 10px;
+    text-indent: -9999px; /* hides the link text */
+}
+a.dateconverter
+{
+    background: url(../Images/Icons/dateconverter.png) no-repeat top left;
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    margin-bottom: -5px;
+  }
+.clssearch
+{
+    background: url(../Images/Icons/search.png) no-repeat top left;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    margin-left: 10px;
+    border: 0px;
+    text-indent: -9999px; /* hides the link text */
+}
+a.clspdf
+{
+    background: url(../Images/NavIcons/pdf.png) no-repeat bottom left;
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    margin: 0 5px;
+    text-indent: 9999px; /* hides the link text */
+    overflow: hidden;
+    display:none;
+}
+
+a.clsretransfer
+{
+    background: url(../Images/Icons/retransfer.png) no-repeat top left;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    margin-left: 10px;
+    border:1px solid black;
+    text-indent: -9999px; /* hides the link text */
+}
+
+a.clsrepayment
+{
+    background: url(../Images/Icons/repayment.png) no-repeat top left;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    border:1px solid black;
+    margin-left: 10px;
+    text-indent: -9999px; /* hides the link text */
+}
+
+.field-validation-error
+{
+    color: #FF0000;
+    font-size: 11px;
+}
+.editor-label
+{
+    margin: 5px 0 0;
+}
+
+.OldDoc
+{
+    cursor: pointer;
+    height: 160px;
+    width: 210px;
+    border: 1px solid silver;
+    padding: 2px;
+    border-radius: 10px;
+}
+
+#Locationpopup
+{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    text-align: left;
+    vertical-align: middle;
+    z-index: 2000;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.6);
+    overflow: auto;
+}
+#Locationpopupinner
+{
+    position: relative;
+    text-align: left;
+    vertical-align: middle;
+    margin: auto;
+    top: 0;
+    left: 0;
+    background: #FFFFFF;
+    overflow: auto;
+    width: 1000px;
+    height: 600px;
+    top: 40%;
+    left: 40%;
+    margin-top: -250px;
+    margin-left: -350px;
+    border-radius: 10px;
+    padding: 5px;
+}
+#LocationWrapper
+{
+    border: 1px solid #000000;
+    border-radius: 6px;
+    padding: 5px;
+}
+
+.big_img
+{
+    height: 300px;
+    position: absolute;
+}
+.display-label
+{
+    float: left;
+    clear: both;
+    line-height: 16px;
+    font-size: 12px;
+}
+.display-field
+{
+    float: left;
+    margin-left: 10px;
+    font-weight: bold;
+    line-height: 16px;
+    font-size: 12px;
+}
+.ui-datepicker-trigger
+{
+    cursor: pointer;
+    margin: 0 5px -7px 0;
+}
+
+
+.lblSearchtop
+{
+    min-width: 150px;
+    display: inline-block;
+    min-height: 20px;
+}
+.txtsearchtop
+{
+    width: 80px;
+}
+.ddlsearchtop
+{
+    width: 159px;
+}
+
+.santionalert
+{
+    background: red;
+    font-size: 14px;
+    font-weight: bold;
+}
+.assologo
+{
+    text-align:center;
+    margin:0 10px;
+    float:right;
+}

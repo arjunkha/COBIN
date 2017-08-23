@@ -1,0 +1,18 @@
+﻿@{
+    COBIN.Classes.HeaderDetail header = new COBIN.Classes.HeaderDetail();
+
+    header = COBIN.Classes.ClsStatic.GetHeaderData();
+    
+}
+<img src="~/Images/NavIcons/logo.png" class="logo" alt="@Html.Raw(header.InstitutionName)" />
+<div id="company">
+    <big><strong>@Html.Raw(header.InstitutionName)</strong></big>
+    <br />
+    <span style="display: block; width: 550px; word-wrap: break-word;">
+    @Html.Raw(header.InstitutionAddress)</span>
+    @Html.Raw(header.InstitutionPhone)<br />
+    @Html.Raw(header.InstitutionEmail)
+</div>
+<div id="navsubmenu">
+    @Html.Partial("_LoginPartial")
+</div>

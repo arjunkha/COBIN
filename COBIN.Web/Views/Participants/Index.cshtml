@@ -1,0 +1,121 @@
+﻿@model IEnumerable<COBIN.DAL.sPlsParticipants_Result>
+@{
+    ViewBag.Title = "Participant List";
+    int i = 0;
+}
+<table id="tblHead">
+    <tr>
+        <td>
+            <b>Participants List</b>
+        </td>
+        <td class="right">
+            @Html.ActionLink(" ", "Create", "Participants", null, new { @class = "clsaddnew", title = "Add New Participant" })
+        </td>
+    </tr>
+</table>
+<table>
+    <thead>
+        <tr>
+            <th>
+                S.N.
+            </th>
+            <th>
+                First Name
+            </th>
+            <th>
+                Last Name
+            </th>
+            <th>
+                Participant ID
+            </th>
+            <th>
+                Address
+            </th>
+            <th>
+                Ward No
+            </th>
+            <th>
+                Contact No
+            </th>
+            <th>
+                Consent Obtained
+            </th>
+            <th>
+                Operations
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null)
+        {
+
+            foreach (var item in Model)
+            {
+                string cls;
+                if ((i++ % 2) == 0)
+                {
+                    cls = "class=light";
+                }
+                else
+                {
+                    cls = "class=dark";
+                }
+
+            <tr @cls>
+                <td>
+                    @i
+                </td>
+                <td>
+                    @Html.HiddenFor(modelItem => item.Id)
+                    @Html.DisplayFor(modelItem => item.First_Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Last_Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ParticipantId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ward_No)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Contact_Number)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Consent_Obtained)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "clsedit", title = "Edit Details" })
+                <a href="javascript: DisplayConfirmation('Confirmation', 'Are You Sure you want to delete?', 'confirm', '/Participants/Delete/' +@item.Id);" class="clsdelete" >
+                            Delete</a>
+     
+                </td>
+            </tr>
+   
+            }
+        }
+        @if (Model == null || i == 0)
+        {
+         
+            <tr class="nohover">
+                <td colspan="9">
+                    No Records Found.
+                </td>
+            </tr>
+           
+        }
+    </tbody>
+</table>
+@section Scripts {
+    @if (@ViewBag.IsPopup == "y")
+    {
+        <script type="text/javascript">
+            $(window).load(function () {
+                DisplayConfirmation('Information', '@ViewBag.Message', 'info');
+            });
+        </script>
+    }
+}

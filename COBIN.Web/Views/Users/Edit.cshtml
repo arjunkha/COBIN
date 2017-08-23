@@ -1,0 +1,88 @@
+﻿@model COBIN.Web.Models.UsersModels
+@{
+    ViewBag.Title = "Edit User";
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <table class="Form2cols">
+        <thead>
+            <tr>
+                <th>
+                    Edit User
+                </th>
+            </tr>
+        </thead>
+        <tr>
+            <td>
+                @Html.ValidationSummary(true)
+                <fieldset>
+                    <table>
+                        <tr>
+                            <td>
+                                @Html.HiddenFor(model => model.UserId)
+                                @Html.HiddenFor(model => model.UserName)
+                                <div class="editor-label">
+                                    <b>@Html.LabelFor(model => model.UserName)</b>
+                                </div>
+                                <div class="editor-field">
+                                    @Html.TextBoxFor(model => model.UserName, new { autocomplete = "off", disabled = "true" })
+                                    @Html.ValidationMessageFor(model => model.UserName)
+                                </div>
+@*                                <div class="editor-label">
+                                    <b>@Html.LabelFor(model => model.Password)</b>
+                                </div>
+                                <div class="editor-field">
+                                    @Html.PasswordFor(model => model.Password, new { autocomplete = "off" })
+                                    @Html.ValidationMessageFor(model => model.Password)
+                                </div>*@
+                                 
+                                <div class="editor-label">
+                                    <b>@Html.LabelFor(model => model.FullName)</b>
+                                </div>
+                                <div class="editor-field">
+                                    @Html.TextBoxFor(model => model.FullName, new { autocomplete = "off" })
+                                    @Html.ValidationMessageFor(model => model.FullName)
+                                </div>
+                                <div class="editor-label">
+                                    <b>@Html.LabelFor(model => model.Status)</b>
+                                </div>
+                                <div class="editor-field">
+                                    @Html.DropDownListFor(model => model.Status, COBIN.Web.Classes.ClsListData.UserStatus)
+                                    @Html.ValidationMessageFor(model => model.Status)
+                                </div>
+                                </td>
+                                <td>
+                                <div class="editor-label">
+                                    <b>@Html.LabelFor(model => model.MobileNo)</b>
+                                </div>
+                                <div class="editor-field">
+                                    @Html.TextBoxFor(model => model.MobileNo, new { autocomplete = "off" })
+                                    @Html.ValidationMessageFor(model => model.MobileNo)
+                                </div>
+                                <div class="editor-label">
+                                    <b>@Html.LabelFor(model => model.Email)</b>
+                                </div>
+                                <div class="editor-field">
+                                    @Html.TextBoxFor(model => model.Email, new { autocomplete = "off" })
+                                    @Html.ValidationMessageFor(model => model.Email)
+                                </div>
+                               
+                            </td>
+                        </tr>
+                    </table>
+                </fieldset>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" value="Save" />
+                <input name="cancel" type="button" value="Back" onclick="window.history.back()" />
+            </td>
+        </tr>
+    </table>
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/CobinFunctions")
+}

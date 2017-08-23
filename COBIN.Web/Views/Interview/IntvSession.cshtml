@@ -1,0 +1,149 @@
+﻿@{
+    @model COBIN.Web.Models.InterviewModels
+    ViewBag.Title = "Interview Session";
+
+}
+<style type="text/css" media="all">
+    fieldset
+    {
+        border: 1px solid purple;
+    }
+    
+    legend
+    {
+        padding: 0.2em 0.5em;
+        border: 2px solid purple;
+        color: purple;
+        font: bold 14px Open Sans,Arial,sans-serif;
+        text-align: right;
+    }
+    .display-label
+    {
+        text-align: left;
+        vertical-align: top;
+        margin: 2px;
+        padding: 3px;
+        font-weight: normal;
+    }
+    .section_instruction
+    {
+        font: 14px Open Sans,Arial,sans-serif;
+        font-family: Rockwell;
+    }
+    .question_format
+    {
+        font: 14px Open Sans,Arial,sans-serif;
+    }
+    .display-field
+    {
+        font-weight: bold;
+        margin: 2px;
+        padding: 3px;
+    }
+</style>
+@using (Html.BeginForm("IntvSession", "Interview", FormMethod.Post))
+{
+    @Html.ValidationSummary(true)
+    @Html.AntiForgeryToken()   
+
+
+
+    if (Model != null)
+    {
+        if (Model.TblRecord.Count > 0)
+        {
+            foreach (var item in Model.TblRecord)
+            {
+
+                if (item.Id_SVQ_Questions.ToString() != "0")
+                {
+    <table class="Form2cols">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayFor(modelItem => item.Section_Name)
+                </th>
+            </tr>
+        </thead>
+        <tr>
+            <td>
+                <fieldset>
+                    <legend>@Html.DisplayFor(modelItem => item.Section_Title)</legend>
+                    <table>
+                        <tr>
+                            <td>
+                                <div class="editor-label">
+                                    @Html.HiddenFor(model => model.ProjectId)
+                                    @Html.HiddenFor(model => model.Participant_Id)
+                                    @Html.HiddenFor(model => model.Section_id, new { id = "Section_id", Value = @Model.Section_id })
+                                    @Html.HiddenFor(model => model.Id_SVQ_Questions, new { id = "Id_SVQ_Questions", Value = @Model.Id_SVQ_Questions })
+                                    @Html.HiddenFor(model => model.Session_Id, new { id = "Session_Id", Value = @Model.Session_Id })
+                                    @*                                @Html.HiddenFor(model => model.Id_Option_Groups)
+                                @Html.HiddenFor(model => model.Measurement_Unit)*@ @*                                @Html.DisplayFor(model => model.Section_id)
+                                @Html.DisplayFor(model => model.Session_Id)
+                                @Html.DisplayFor(model => model.Id_SVQ_Questions)*@
+                                </div>
+                                <div class="editor-label section_instruction">
+                                    @Html.Raw(Server.HtmlDecode(item.Section_Instructions))
+                                </div>
+                                <br />
+                                <div class="editor-label question_format">
+                                    <b>@Html.Raw(Server.HtmlDecode(item.Question_Name))</b>
+                                </div>
+                                <br />
+                                <div class="editor-label">
+                                    <b>@Html.Raw(Server.HtmlDecode(item.Question_Subtext))</b>
+                                </div>
+                                <div class="editor-field">
+                                    @if (item.Id_Input_Types == 1)
+                                    {
+                                        @Html.DropDownListFor(model => model.Id_Option_Groups_Choices, COBIN.Web.Classes.ClsListData.GetQuestionOptions(Model.Id_Option_Groups), new { style = "width:150px;" })
+                                    }
+                                    else if (item.Id_Input_Types == 2)
+                                    {
+                                        @Html.TextBoxFor(model => model.Id_Option_Groups_Choices, new { autocomplete = "off", Value = "" })  
+                                    }
+                                    else if (item.Id_Input_Types == 3)
+                                    {
+                                        @Html.TextBoxFor(model => model.Id_Option_Groups_Choices, new { autocomplete = "off" })   
+                                    }
+                                    @Html.ValidationMessageFor(model => model.Id_Option_Groups_Choices)
+                                </div>
+                                @* <div class="editor-label">
+                                    <b>@Html.LabelFor(model => model.Participant_Id)</b>
+                                </div>
+                                <div class="editor-field">
+                                    @Html.TextBoxFor(model => model.Participant_Id, new { autocomplete = "off" })
+                                    @Html.ValidationMessageFor(model => model.Participant_Id)
+                                </div>
+                                *@
+                            </td>
+                        </tr>
+                    </table>
+                </fieldset>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" value="Next Question" />
+            </td>
+        </tr>
+    </table>
+                }
+                else
+                {
+    <table class="Form2cols">
+        <thead>
+            <tr>
+                <th>
+                   You have completed the survey. Thank you for your participation!!!
+                </th>
+            </tr>
+        </thead>
+    </table>
+                }
+            }
+        }
+    }
+
+}

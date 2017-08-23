@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html >
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@COBIN.Classes.ClsStatic.GetPageTitle()</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/themes/base/css")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/datepicker")        
+    @Scripts.Render("~/bundles/MessageBox")
+    @Scripts.Render("~/bundles/Validate")
+
+    @RenderSection("scripts", required: false)
+</head>
+<body>
+    <div id="banner">
+    <div id="header">
+        @Html.Partial("_Institution")        
+        <div class="clear">
+        </div>
+    </div>
+    <div class="navbar">
+        @Html.Partial("_Nav")
+    </div>
+    </div>
+    <div id="content">
+    <div class="contentinner">
+        @RenderBody()
+        </div>
+    </div>
+    <div id="footer">
+        &copy; @DateTime.Now.Year @COBIN.Classes.ClsStatic.GetPageTitle(), All rights reserved.
+    </div>
+    @*<div id="loading">
+    </div>*@
+  </body>
+</html>

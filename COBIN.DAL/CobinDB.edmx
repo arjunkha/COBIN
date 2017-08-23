@@ -1,0 +1,807 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="CobinModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="CobinModelStoreContainer" />
+        <Function Name="PlsInterviewQuestions" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Flag" Type="varchar" Mode="In" />
+          <Parameter Name="ProjectId" Type="int" Mode="In" />
+          <Parameter Name="Participant_Id" Type="varchar" Mode="In" />
+          <Parameter Name="Session_Id" Type="varchar" Mode="In" />
+          <Parameter Name="SectionId" Type="varchar" Mode="In" />
+          <Parameter Name="Id_SVQ_Questions" Type="int" Mode="In" />
+          <Parameter Name="Id_Option_Groups_Choices" Type="int" Mode="In" />
+          <Parameter Name="Measurement_Unit" Type="int" Mode="In" />
+          <Parameter Name="ActionUser" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="PlsOptionChoices" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Flag" Type="varchar" Mode="In" />
+          <Parameter Name="Id_Option_Groups" Type="int" Mode="In" />
+          <Parameter Name="ActionUser" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="PlsParticipants" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Flag" Type="varchar" Mode="In" />
+          <Parameter Name="Id" Type="int" Mode="In" />
+          <Parameter Name="Participant_Id" Type="varchar" Mode="In" />
+          <Parameter Name="First_Name" Type="varchar" Mode="In" />
+          <Parameter Name="Last_Name" Type="varchar" Mode="In" />
+          <Parameter Name="Ward_No" Type="varchar" Mode="In" />
+          <Parameter Name="Address" Type="varchar" Mode="In" />
+          <Parameter Name="Contact_Number" Type="varchar" Mode="In" />
+          <Parameter Name="Interview_Language" Type="varchar" Mode="In" />
+          <Parameter Name="Consent_Obtained" Type="varchar" Mode="In" />
+          <Parameter Name="ActionUser" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="PlsStaticData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Sno" Type="int" Mode="In" />
+          <Parameter Name="param" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="PlsSVQHeaders" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Flag" Type="varchar" Mode="In" />
+          <Parameter Name="Id" Type="int" Mode="In" />
+          <Parameter Name="Id_Institution" Type="int" Mode="In" />
+          <Parameter Name="SurveyName" Type="varchar" Mode="In" />
+          <Parameter Name="Survey_Code" Type="varchar" Mode="In" />
+          <Parameter Name="Survey_Instructions" Type="varchar" Mode="In" />
+          <Parameter Name="MiscellaneousInfo" Type="varchar" Mode="In" />
+          <Parameter Name="ActionUser" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="PlsSVQQuestions" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Flag" Type="varchar" Mode="In" />
+          <Parameter Name="Id" Type="int" Mode="In" />
+          <Parameter Name="Id_SVQ_Sections" Type="int" Mode="In" />
+          <Parameter Name="Id_Input_Types" Type="int" Mode="In" />
+          <Parameter Name="Id_Option_Categories" Type="int" Mode="In" />
+          <Parameter Name="Question_Name" Type="varchar" Mode="In" />
+          <Parameter Name="Question_Subtext" Type="varchar" Mode="In" />
+          <Parameter Name="Question_Code" Type="varchar" Mode="In" />
+          <Parameter Name="Measurement_Unit" Type="varchar" Mode="In" />
+          <Parameter Name="ActionUser" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="PlsSVQSections" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Flag" Type="varchar" Mode="In" />
+          <Parameter Name="Id" Type="int" Mode="In" />
+          <Parameter Name="Id_SVQ_Headers" Type="int" Mode="In" />
+          <Parameter Name="Section_Name" Type="varchar" Mode="In" />
+          <Parameter Name="Section_Title" Type="varchar" Mode="In" />
+          <Parameter Name="Section_Instructions" Type="varchar" Mode="In" />
+          <Parameter Name="Is_Required_Section" Type="varchar" Mode="In" />
+          <Parameter Name="ActionUser" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="PlsUserAuthentication" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserName" Type="varchar" Mode="In" />
+          <Parameter Name="Password" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="PlsUsers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Flag" Type="varchar" Mode="In" />
+          <Parameter Name="UserId" Type="int" Mode="In" />
+          <Parameter Name="UserName" Type="varchar" Mode="In" />
+          <Parameter Name="OldPassword" Type="varchar" Mode="In" />
+          <Parameter Name="NewPassword" Type="varchar" Mode="In" />
+          <Parameter Name="FullName" Type="varchar" Mode="In" />
+          <Parameter Name="MobileNumber" Type="varchar" Mode="In" />
+          <Parameter Name="EmailAddress" Type="varchar" Mode="In" />
+          <Parameter Name="Status" Type="varchar" Mode="In" />
+          <Parameter Name="ActionUser" Type="varchar" Mode="In" />
+        </Function>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CobinModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="CobinDBCon" annotation:LazyLoadingEnabled="true" >
+          <FunctionImport Name="PlsUserAuthentication" ReturnType="Collection(CobinModel.PlsUserAuthentication_Result)">
+            <Parameter Name="UserName" Mode="In" Type="String" />
+            <Parameter Name="Password" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sPlsUsers" ReturnType="Collection(CobinModel.sPlsUsers_Result)">
+            <Parameter Name="Flag" Mode="In" Type="String" />
+            <Parameter Name="UserId" Mode="In" Type="Int32" />
+            <Parameter Name="UserName" Mode="In" Type="String" />
+            <Parameter Name="OldPassword" Mode="In" Type="String" />
+            <Parameter Name="NewPassword" Mode="In" Type="String" />
+            <Parameter Name="FullName" Mode="In" Type="String" />
+            <Parameter Name="MobileNumber" Mode="In" Type="String" />
+            <Parameter Name="EmailAddress" Mode="In" Type="String" />
+            <Parameter Name="Status" Mode="In" Type="String" />
+            <Parameter Name="ActionUser" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sPlsSVQHeaders" ReturnType="Collection(CobinModel.sPlsSVQHeaders_Result)">
+            <Parameter Name="Flag" Mode="In" Type="String" />
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+            <Parameter Name="Id_Institution" Mode="In" Type="Int32" />
+            <Parameter Name="SurveyName" Mode="In" Type="String" />
+            <Parameter Name="Survey_Code" Mode="In" Type="String" />
+            <Parameter Name="Survey_Instructions" Mode="In" Type="String" />
+            <Parameter Name="MiscellaneousInfo" Mode="In" Type="String" />
+            <Parameter Name="ActionUser" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sPlsSVQSections" ReturnType="Collection(CobinModel.sPlsSVQSections_Result)">
+            <Parameter Name="Flag" Mode="In" Type="String" />
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+            <Parameter Name="Id_SVQ_Headers" Mode="In" Type="Int32" />
+            <Parameter Name="Section_Name" Mode="In" Type="String" />
+            <Parameter Name="Section_Title" Mode="In" Type="String" />
+            <Parameter Name="Section_Instructions" Mode="In" Type="String" />
+            <Parameter Name="Is_Required_Section" Mode="In" Type="String" />
+            <Parameter Name="ActionUser" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sPlsSVQQuestions" ReturnType="Collection(CobinModel.sPlsSVQQuestions_Result)">
+            <Parameter Name="Flag" Mode="In" Type="String" />
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+            <Parameter Name="Id_SVQ_Sections" Mode="In" Type="Int32" />
+            <Parameter Name="Id_Input_Types" Mode="In" Type="Int32" />
+            <Parameter Name="Id_Option_Categories" Mode="In" Type="Int32" />
+            <Parameter Name="Question_Name" Mode="In" Type="String" />
+            <Parameter Name="Question_Subtext" Mode="In" Type="String" />
+            <Parameter Name="Question_Code" Mode="In" Type="String" />
+            <Parameter Name="Measurement_Unit" Mode="In" Type="String" />
+            <Parameter Name="ActionUser" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="uPlsSVQQuestions" ReturnType="Collection(CobinModel.uPlsSVQQuestions_Result)">
+            <Parameter Name="Flag" Mode="In" Type="String" />
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+            <Parameter Name="Id_SVQ_Sections" Mode="In" Type="Int32" />
+            <Parameter Name="Id_Input_Types" Mode="In" Type="Int32" />
+            <Parameter Name="Id_Option_Categories" Mode="In" Type="Int32" />
+            <Parameter Name="Question_Name" Mode="In" Type="String" />
+            <Parameter Name="Question_Subtext" Mode="In" Type="String" />
+            <Parameter Name="Question_Code" Mode="In" Type="String" />
+            <Parameter Name="Measurement_Unit" Mode="In" Type="String" />
+            <Parameter Name="ActionUser" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="iPlsSVQQuestions" ReturnType="Collection(CobinModel.iPlsSVQQuestions_Result)">
+            <Parameter Name="Flag" Mode="In" Type="String" />
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+            <Parameter Name="Id_SVQ_Sections" Mode="In" Type="Int32" />
+            <Parameter Name="Id_Input_Types" Mode="In" Type="Int32" />
+            <Parameter Name="Id_Option_Categories" Mode="In" Type="Int32" />
+            <Parameter Name="Question_Name" Mode="In" Type="String" />
+            <Parameter Name="Question_Subtext" Mode="In" Type="String" />
+            <Parameter Name="Question_Code" Mode="In" Type="String" />
+            <Parameter Name="Measurement_Unit" Mode="In" Type="String" />
+            <Parameter Name="ActionUser" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="dPlsSVQQuestions" ReturnType="Collection(CobinModel.dPlsSVQQuestions_Result)">
+            <Parameter Name="Flag" Mode="In" Type="String" />
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+            <Parameter Name="Id_SVQ_Sections" Mode="In" Type="Int32" />
+            <Parameter Name="Id_Input_Types" Mode="In" Type="Int32" />
+            <Parameter Name="Id_Option_Categories" Mode="In" Type="Int32" />
+            <Parameter Name="Question_Name" Mode="In" Type="String" />
+            <Parameter Name="Question_Subtext" Mode="In" Type="String" />
+            <Parameter Name="Question_Code" Mode="In" Type="String" />
+            <Parameter Name="Measurement_Unit" Mode="In" Type="String" />
+            <Parameter Name="ActionUser" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="uPlsSVQSections" ReturnType="Collection(CobinModel.uPlsSVQSections_Result)">
+            <Parameter Name="Flag" Mode="In" Type="String" />
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+            <Parameter Name="Id_SVQ_Headers" Mode="In" Type="Int32" />
+            <Parameter Name="Section_Name" Mode="In" Type="String" />
+            <Parameter Name="Section_Title" Mode="In" Type="String" />
+            <Parameter Name="Section_Instructions" Mode="In" Type="String" />
+            <Parameter Name="Is_Required_Section" Mode="In" Type="String" />
+            <Parameter Name="ActionUser" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="iPlsSVQSections" ReturnType="Collection(CobinModel.iPlsSVQSections_Result)">
+            <Parameter Name="Flag" Mode="In" Type="String" />
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+            <Parameter Name="Id_SVQ_Headers" Mode="In" Type="Int32" />
+            <Parameter Name="Section_Name" Mode="In" Type="String" />
+            <Parameter Name="Section_Title" Mode="In" Type="String" />
+            <Parameter Name="Section_Instructions" Mode="In" Type="String" />
+            <Parameter Name="Is_Required_Section" Mode="In" Type="String" />
+            <Parameter Name="ActionUser" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="dPlsSVQSections" ReturnType="Collection(CobinModel.dPlsSVQSections_Result)">
+            <Parameter Name="Flag" Mode="In" Type="String" />
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+            <Parameter Name="Id_SVQ_Headers" Mode="In" Type="Int32" />
+            <Parameter Name="Section_Name" Mode="In" Type="String" />
+            <Parameter Name="Section_Title" Mode="In" Type="String" />
+            <Parameter Name="Section_Instructions" Mode="In" Type="String" />
+            <Parameter Name="Is_Required_Section" Mode="In" Type="String" />
+            <Parameter Name="ActionUser" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="iPlsUsers" ReturnType="Collection(CobinModel.iPlsUsers_Result)">
+            <Parameter Name="Flag" Mode="In" Type="String" />
+            <Parameter Name="UserId" Mode="In" Type="Int32" />
+            <Parameter Name="UserName" Mode="In" Type="String" />
+            <Parameter Name="OldPassword" Mode="In" Type="String" />
+            <Parameter Name="NewPassword" Mode="In" Type="String" />
+            <Parameter Name="FullName" Mode="In" Type="String" />
+            <Parameter Name="MobileNumber" Mode="In" Type="String" />
+            <Parameter Name="EmailAddress" Mode="In" Type="String" />
+            <Parameter Name="Status" Mode="In" Type="String" />
+            <Parameter Name="ActionUser" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="uPlsUsers" ReturnType="Collection(CobinModel.uPlsUsers_Result)">
+            <Parameter Name="Flag" Mode="In" Type="String" />
+            <Parameter Name="UserId" Mode="In" Type="Int32" />
+            <Parameter Name="UserName" Mode="In" Type="String" />
+            <Parameter Name="OldPassword" Mode="In" Type="String" />
+            <Parameter Name="NewPassword" Mode="In" Type="String" />
+            <Parameter Name="FullName" Mode="In" Type="String" />
+            <Parameter Name="MobileNumber" Mode="In" Type="String" />
+            <Parameter Name="EmailAddress" Mode="In" Type="String" />
+            <Parameter Name="Status" Mode="In" Type="String" />
+            <Parameter Name="ActionUser" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="pPlsUsers" ReturnType="Collection(CobinModel.pPlsUsers_Result)">
+            <Parameter Name="Flag" Mode="In" Type="String" />
+            <Parameter Name="UserId" Mode="In" Type="Int32" />
+            <Parameter Name="UserName" Mode="In" Type="String" />
+            <Parameter Name="OldPassword" Mode="In" Type="String" />
+            <Parameter Name="NewPassword" Mode="In" Type="String" />
+            <Parameter Name="FullName" Mode="In" Type="String" />
+            <Parameter Name="MobileNumber" Mode="In" Type="String" />
+            <Parameter Name="EmailAddress" Mode="In" Type="String" />
+            <Parameter Name="Status" Mode="In" Type="String" />
+            <Parameter Name="ActionUser" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="dPlsUsers" ReturnType="Collection(CobinModel.dPlsUsers_Result)">
+            <Parameter Name="Flag" Mode="In" Type="String" />
+            <Parameter Name="UserId" Mode="In" Type="Int32" />
+            <Parameter Name="UserName" Mode="In" Type="String" />
+            <Parameter Name="OldPassword" Mode="In" Type="String" />
+            <Parameter Name="NewPassword" Mode="In" Type="String" />
+            <Parameter Name="FullName" Mode="In" Type="String" />
+            <Parameter Name="MobileNumber" Mode="In" Type="String" />
+            <Parameter Name="EmailAddress" Mode="In" Type="String" />
+            <Parameter Name="Status" Mode="In" Type="String" />
+            <Parameter Name="ActionUser" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sPlsParticipants" ReturnType="Collection(CobinModel.sPlsParticipants_Result)">
+            <Parameter Name="Flag" Mode="In" Type="String" />
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+            <Parameter Name="Participant_Id" Mode="In" Type="String" />
+            <Parameter Name="First_Name" Mode="In" Type="String" />
+            <Parameter Name="Last_Name" Mode="In" Type="String" />
+            <Parameter Name="Ward_No" Mode="In" Type="String" />
+            <Parameter Name="Address" Mode="In" Type="String" />
+            <Parameter Name="Contact_Number" Mode="In" Type="String" />
+            <Parameter Name="Interview_Language" Mode="In" Type="String" />
+            <Parameter Name="Consent_Obtained" Mode="In" Type="String" />
+            <Parameter Name="ActionUser" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="iPlsParticipants" ReturnType="Collection(CobinModel.iPlsParticipants_Result)">
+            <Parameter Name="Flag" Mode="In" Type="String" />
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+            <Parameter Name="Participant_Id" Mode="In" Type="String" />
+            <Parameter Name="First_Name" Mode="In" Type="String" />
+            <Parameter Name="Last_Name" Mode="In" Type="String" />
+            <Parameter Name="Ward_No" Mode="In" Type="String" />
+            <Parameter Name="Address" Mode="In" Type="String" />
+            <Parameter Name="Contact_Number" Mode="In" Type="String" />
+            <Parameter Name="Interview_Language" Mode="In" Type="String" />
+            <Parameter Name="Consent_Obtained" Mode="In" Type="String" />
+            <Parameter Name="ActionUser" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="uPlsParticipants" ReturnType="Collection(CobinModel.uPlsParticipants_Result)">
+            <Parameter Name="Flag" Mode="In" Type="String" />
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+            <Parameter Name="Participant_Id" Mode="In" Type="String" />
+            <Parameter Name="First_Name" Mode="In" Type="String" />
+            <Parameter Name="Last_Name" Mode="In" Type="String" />
+            <Parameter Name="Ward_No" Mode="In" Type="String" />
+            <Parameter Name="Address" Mode="In" Type="String" />
+            <Parameter Name="Contact_Number" Mode="In" Type="String" />
+            <Parameter Name="Interview_Language" Mode="In" Type="String" />
+            <Parameter Name="Consent_Obtained" Mode="In" Type="String" />
+            <Parameter Name="ActionUser" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="dPlsParticipants" ReturnType="Collection(CobinModel.dPlsParticipants_Result)">
+            <Parameter Name="Flag" Mode="In" Type="String" />
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+            <Parameter Name="Participant_Id" Mode="In" Type="String" />
+            <Parameter Name="First_Name" Mode="In" Type="String" />
+            <Parameter Name="Last_Name" Mode="In" Type="String" />
+            <Parameter Name="Ward_No" Mode="In" Type="String" />
+            <Parameter Name="Address" Mode="In" Type="String" />
+            <Parameter Name="Contact_Number" Mode="In" Type="String" />
+            <Parameter Name="Interview_Language" Mode="In" Type="String" />
+            <Parameter Name="Consent_Obtained" Mode="In" Type="String" />
+            <Parameter Name="ActionUser" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sPlsInterviewQuestions" ReturnType="Collection(CobinModel.sPlsInterviewQuestions_Result)">
+            <Parameter Name="Flag" Mode="In" Type="String" />
+            <Parameter Name="ProjectId" Mode="In" Type="Int32" />
+            <Parameter Name="Participant_Id" Mode="In" Type="String" />
+            <Parameter Name="Session_Id" Mode="In" Type="String" />
+            <Parameter Name="SectionId" Mode="In" Type="String" />
+            <Parameter Name="Id_SVQ_Questions" Mode="In" Type="Int32" />
+            <Parameter Name="Id_Option_Groups_Choices" Mode="In" Type="Int32" />
+            <Parameter Name="Measurement_Unit" Mode="In" Type="Int32" />
+            <Parameter Name="ActionUser" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sPlsOptionChoices" ReturnType="Collection(CobinModel.sPlsOptionChoices_Result)">
+            <Parameter Name="Flag" Mode="In" Type="String" />
+            <Parameter Name="Id_Option_Groups" Mode="In" Type="Int32" />
+            <Parameter Name="ActionUser" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="iPlsSVQHeaders" ReturnType="Collection(CobinModel.iPlsSVQHeaders_Result)">
+            <Parameter Name="Flag" Mode="In" Type="String" />
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+            <Parameter Name="Id_Institution" Mode="In" Type="Int32" />
+            <Parameter Name="SurveyName" Mode="In" Type="String" />
+            <Parameter Name="Survey_Code" Mode="In" Type="String" />
+            <Parameter Name="Survey_Instructions" Mode="In" Type="String" />
+            <Parameter Name="MiscellaneousInfo" Mode="In" Type="String" />
+            <Parameter Name="ActionUser" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sPlsStaticData" ReturnType="Collection(CobinModel.sPlsStaticData_Result)">
+            <Parameter Name="Sno" Mode="In" Type="Int32" />
+            <Parameter Name="param" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="PlsUserAuthentication_Result">
+          <Property Type="String" Name="Status" Nullable="false" MaxLength="5" />
+          <Property Type="String" Name="Code" Nullable="false" MaxLength="3" />
+          <Property Type="String" Name="Message" Nullable="false" MaxLength="26" />
+        </ComplexType>
+        <ComplexType Name="sPlsUsers_Result">
+          <Property Type="Int32" Name="UserId" Nullable="false" />
+          <Property Type="String" Name="UserName" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Password" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="FullName" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="MobileNumber" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="EmailAddress" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Status" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="LastLoginIp" Nullable="true" MaxLength="20" />
+          <Property Type="DateTime" Name="LastLoginDate" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="LastPasswordChangedDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="CreatedBy" Nullable="false" MaxLength="20" />
+          <Property Type="DateTime" Name="CreatedDate" Nullable="false" Precision="23" />
+          <Property Type="String" Name="UpdatedBy" Nullable="true" MaxLength="20" />
+          <Property Type="DateTime" Name="UpdatedDate" Nullable="true" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="sPlsSVQHeaders_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="Int32" Name="Id_Institutions" Nullable="false" />
+          <Property Type="String" Name="Survey_Name" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="Survey_Code" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Survey_Instructions" Nullable="true" />
+          <Property Type="String" Name="Miscellaneous_Info" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="CreatedDate" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="sPlsSVQSections_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="Int32" Name="Id_SVQ_Headers" Nullable="false" />
+          <Property Type="String" Name="Section_Name" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="Section_Title" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="Section_Instructions" Nullable="true" />
+          <Property Type="String" Name="Is_Required_Section" Nullable="true" MaxLength="1" />
+          <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="sPlsSVQQuestions_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="Int32" Name="Id_SVQ_Sections" Nullable="false" />
+          <Property Type="Int32" Name="Id_Input_Types" Nullable="false" />
+          <Property Type="String" Name="Question_Name" Nullable="true" MaxLength="300" />
+          <Property Type="String" Name="Question_Subtext" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="Question_Code" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="Measurement_Unit" Nullable="true" />
+          <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="20" />
+          <Property Type="Int32" Name="Id_SVQ_Headers" Nullable="true" />
+          <Property Type="String" Name="Section_Name" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Section_Title" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Section_Instructions" Nullable="true" />
+          <Property Type="String" Name="Is_Required_Section" Nullable="true" MaxLength="1" />
+          <Property Type="Int32" Name="Id_Option_Groups" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="uPlsSVQQuestions_Result">
+          <Property Type="String" Name="Status" Nullable="false" MaxLength="7" />
+          <Property Type="String" Name="Code" Nullable="false" MaxLength="3" />
+          <Property Type="String" Name="Message" Nullable="false" MaxLength="34" />
+        </ComplexType>
+        <ComplexType Name="iPlsSVQQuestions_Result">
+          <Property Type="String" Name="Status" Nullable="false" MaxLength="7" />
+          <Property Type="String" Name="Code" Nullable="false" MaxLength="3" />
+          <Property Type="String" Name="Message" Nullable="false" MaxLength="30" />
+        </ComplexType>
+        <ComplexType Name="dPlsSVQQuestions_Result">
+          <Property Type="String" Name="Status" Nullable="false" MaxLength="7" />
+          <Property Type="String" Name="Code" Nullable="false" MaxLength="3" />
+          <Property Type="String" Name="Message" Nullable="false" MaxLength="32" />
+        </ComplexType>
+        <ComplexType Name="uPlsSVQSections_Result">
+          <Property Type="String" Name="Status" Nullable="false" MaxLength="7" />
+          <Property Type="String" Name="Code" Nullable="false" MaxLength="3" />
+          <Property Type="String" Name="Message" Nullable="false" MaxLength="31" />
+        </ComplexType>
+        <ComplexType Name="iPlsSVQSections_Result">
+          <Property Type="String" Name="Status" Nullable="false" MaxLength="7" />
+          <Property Type="String" Name="Code" Nullable="false" MaxLength="3" />
+          <Property Type="String" Name="Message" Nullable="false" MaxLength="29" />
+        </ComplexType>
+        <ComplexType Name="dPlsSVQSections_Result">
+          <Property Type="String" Name="Status" Nullable="false" MaxLength="7" />
+          <Property Type="String" Name="Code" Nullable="false" MaxLength="3" />
+          <Property Type="String" Name="Message" Nullable="false" MaxLength="32" />
+        </ComplexType>
+        <ComplexType Name="iPlsUsers_Result">
+          <Property Type="String" Name="Status" Nullable="false" MaxLength="7" />
+          <Property Type="String" Name="Code" Nullable="false" MaxLength="3" />
+          <Property Type="String" Name="Message" Nullable="false" MaxLength="25" />
+        </ComplexType>
+        <ComplexType Name="uPlsUsers_Result">
+          <Property Type="String" Name="Status" Nullable="false" MaxLength="7" />
+          <Property Type="String" Name="Code" Nullable="false" MaxLength="3" />
+          <Property Type="String" Name="Message" Nullable="false" MaxLength="25" />
+        </ComplexType>
+        <ComplexType Name="pPlsUsers_Result">
+          <Property Type="String" Name="Status" Nullable="false" MaxLength="7" />
+          <Property Type="String" Name="Code" Nullable="false" MaxLength="3" />
+          <Property Type="String" Name="Message" Nullable="false" MaxLength="30" />
+        </ComplexType>
+        <ComplexType Name="dPlsUsers_Result">
+          <Property Type="String" Name="Status" Nullable="false" MaxLength="7" />
+          <Property Type="String" Name="Code" Nullable="false" MaxLength="3" />
+          <Property Type="String" Name="Message" Nullable="false" MaxLength="25" />
+        </ComplexType>
+        <ComplexType Name="sPlsParticipants_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="ParticipantId" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="First_Name" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Last_Name" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Contact_Number" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Interview_Language" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Consent_Obtained" Nullable="true" MaxLength="5" />
+          <Property Type="String" Name="Ward_No" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Address" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="20" />
+          <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="UpdatedBy" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="UpdatedDate" Nullable="true" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="iPlsParticipants_Result">
+          <Property Type="String" Name="Status" Nullable="false" MaxLength="7" />
+          <Property Type="String" Name="Code" Nullable="false" MaxLength="3" />
+          <Property Type="String" Name="Message" Nullable="false" MaxLength="30" />
+        </ComplexType>
+        <ComplexType Name="uPlsParticipants_Result">
+          <Property Type="String" Name="Status" Nullable="false" MaxLength="7" />
+          <Property Type="String" Name="Code" Nullable="false" MaxLength="3" />
+          <Property Type="String" Name="Message" Nullable="false" MaxLength="32" />
+        </ComplexType>
+        <ComplexType Name="dPlsParticipants_Result">
+          <Property Type="String" Name="Status" Nullable="false" MaxLength="7" />
+          <Property Type="String" Name="Code" Nullable="false" MaxLength="3" />
+          <Property Type="String" Name="Message" Nullable="false" MaxLength="32" />
+        </ComplexType>
+        <ComplexType Name="sPlsInterviewQuestions_Result">
+          <Property Type="Int32" Name="Id_SVQ_Sections" Nullable="false" />
+          <Property Type="Int32" Name="Id_Input_Types" Nullable="false" />
+          <Property Type="Int32" Name="Id_Option_Groups" Nullable="true" />
+          <Property Type="String" Name="Question_Name" Nullable="true" MaxLength="300" />
+          <Property Type="String" Name="Question_Subtext" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="Question_Code" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="Measurement_Unit" Nullable="true" />
+          <Property Type="Int32" Name="Id_SVQ_Headers" Nullable="true" />
+          <Property Type="String" Name="Section_Name" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Section_Title" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Section_Instructions" Nullable="true" />
+          <Property Type="String" Name="Is_Required_Section" Nullable="true" MaxLength="1" />
+          <Property Type="Int32" Name="Id_Institutions" Nullable="true" />
+          <Property Type="String" Name="Survey_Name" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Survey_Code" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Survey_Instructions" Nullable="true" />
+          <Property Type="String" Name="Session_Id" Nullable="false" MaxLength="15" />
+          <Property Type="Int32" Name="Id_SVQ_Questions" Nullable="false" />
+          <Property Type="Int32" Name="ProjectId" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sPlsOptionChoices_Result">
+          <Property Type="Int32" Name="Id_Option_Groups_Choices" Nullable="true" />
+          <Property Type="String" Name="Option_Choice_Name" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Option_Choice_Code" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="iPlsSVQHeaders_Result">
+          <Property Type="String" Name="Status" Nullable="false" MaxLength="7" />
+          <Property Type="String" Name="Code" Nullable="false" MaxLength="3" />
+          <Property Type="String" Name="Message" Nullable="false" MaxLength="39" />
+        </ComplexType>
+        <ComplexType Name="sPlsStaticData_Result">
+          <Property Type="String" Name="Value" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Label" Nullable="false" MaxLength="200" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CobinModelStoreContainer" CdmEntityContainer="CobinDBCon" >
+          <FunctionImportMapping FunctionImportName="PlsUserAuthentication" FunctionName="CobinModel.Store.PlsUserAuthentication">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CobinModel.PlsUserAuthentication_Result">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sPlsUsers" FunctionName="CobinModel.Store.PlsUsers">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CobinModel.sPlsUsers_Result">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="LastLoginIp" ColumnName="LastLoginIp" />
+                <ScalarProperty Name="LastLoginDate" ColumnName="LastLoginDate" />
+                <ScalarProperty Name="LastPasswordChangedDate" ColumnName="LastPasswordChangedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sPlsSVQHeaders" FunctionName="CobinModel.Store.PlsSVQHeaders">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CobinModel.sPlsSVQHeaders_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Id_Institutions" ColumnName="Id_Institutions" />
+                <ScalarProperty Name="Survey_Name" ColumnName="Survey_Name" />
+                <ScalarProperty Name="Survey_Code" ColumnName="Survey_Code" />
+                <ScalarProperty Name="Survey_Instructions" ColumnName="Survey_Instructions" />
+                <ScalarProperty Name="Miscellaneous_Info" ColumnName="Miscellaneous_Info" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sPlsSVQSections" FunctionName="CobinModel.Store.PlsSVQSections">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CobinModel.sPlsSVQSections_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Id_SVQ_Headers" ColumnName="Id_SVQ_Headers" />
+                <ScalarProperty Name="Section_Name" ColumnName="Section_Name" />
+                <ScalarProperty Name="Section_Title" ColumnName="Section_Title" />
+                <ScalarProperty Name="Section_Instructions" ColumnName="Section_Instructions" />
+                <ScalarProperty Name="Is_Required_Section" ColumnName="Is_Required_Section" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sPlsSVQQuestions" FunctionName="CobinModel.Store.PlsSVQQuestions">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CobinModel.sPlsSVQQuestions_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Id_SVQ_Sections" ColumnName="Id_SVQ_Sections" />
+                <ScalarProperty Name="Id_Input_Types" ColumnName="Id_Input_Types" />
+                <ScalarProperty Name="Question_Name" ColumnName="Question_Name" />
+                <ScalarProperty Name="Question_Subtext" ColumnName="Question_Subtext" />
+                <ScalarProperty Name="Question_Code" ColumnName="Question_Code" />
+                <ScalarProperty Name="Measurement_Unit" ColumnName="Measurement_Unit" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Id_SVQ_Headers" ColumnName="Id_SVQ_Headers" />
+                <ScalarProperty Name="Section_Name" ColumnName="Section_Name" />
+                <ScalarProperty Name="Section_Title" ColumnName="Section_Title" />
+                <ScalarProperty Name="Section_Instructions" ColumnName="Section_Instructions" />
+                <ScalarProperty Name="Is_Required_Section" ColumnName="Is_Required_Section" />
+                <ScalarProperty Name="Id_Option_Groups" ColumnName="Id_Option_Groups" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uPlsSVQQuestions" FunctionName="CobinModel.Store.PlsSVQQuestions">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CobinModel.uPlsSVQQuestions_Result">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="iPlsSVQQuestions" FunctionName="CobinModel.Store.PlsSVQQuestions">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CobinModel.iPlsSVQQuestions_Result">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="dPlsSVQQuestions" FunctionName="CobinModel.Store.PlsSVQQuestions">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CobinModel.dPlsSVQQuestions_Result">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uPlsSVQSections" FunctionName="CobinModel.Store.PlsSVQSections">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CobinModel.uPlsSVQSections_Result">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="iPlsSVQSections" FunctionName="CobinModel.Store.PlsSVQSections">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CobinModel.iPlsSVQSections_Result">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="dPlsSVQSections" FunctionName="CobinModel.Store.PlsSVQSections">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CobinModel.dPlsSVQSections_Result">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="iPlsUsers" FunctionName="CobinModel.Store.PlsUsers">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CobinModel.iPlsUsers_Result">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uPlsUsers" FunctionName="CobinModel.Store.PlsUsers">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CobinModel.uPlsUsers_Result">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="pPlsUsers" FunctionName="CobinModel.Store.PlsUsers">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CobinModel.pPlsUsers_Result">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="dPlsUsers" FunctionName="CobinModel.Store.PlsUsers">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CobinModel.dPlsUsers_Result">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sPlsParticipants" FunctionName="CobinModel.Store.PlsParticipants">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CobinModel.sPlsParticipants_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ParticipantId" ColumnName="ParticipantId" />
+                <ScalarProperty Name="First_Name" ColumnName="First_Name" />
+                <ScalarProperty Name="Last_Name" ColumnName="Last_Name" />
+                <ScalarProperty Name="Contact_Number" ColumnName="Contact_Number" />
+                <ScalarProperty Name="Interview_Language" ColumnName="Interview_Language" />
+                <ScalarProperty Name="Consent_Obtained" ColumnName="Consent_Obtained" />
+                <ScalarProperty Name="Ward_No" ColumnName="Ward_No" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="iPlsParticipants" FunctionName="CobinModel.Store.PlsParticipants">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CobinModel.iPlsParticipants_Result">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uPlsParticipants" FunctionName="CobinModel.Store.PlsParticipants">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CobinModel.uPlsParticipants_Result">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="dPlsParticipants" FunctionName="CobinModel.Store.PlsParticipants">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CobinModel.dPlsParticipants_Result">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sPlsInterviewQuestions" FunctionName="CobinModel.Store.PlsInterviewQuestions">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CobinModel.sPlsInterviewQuestions_Result">
+                <ScalarProperty Name="Id_SVQ_Sections" ColumnName="Id_SVQ_Sections" />
+                <ScalarProperty Name="Id_Input_Types" ColumnName="Id_Input_Types" />
+                <ScalarProperty Name="Id_Option_Groups" ColumnName="Id_Option_Groups" />
+                <ScalarProperty Name="Question_Name" ColumnName="Question_Name" />
+                <ScalarProperty Name="Question_Subtext" ColumnName="Question_Subtext" />
+                <ScalarProperty Name="Question_Code" ColumnName="Question_Code" />
+                <ScalarProperty Name="Measurement_Unit" ColumnName="Measurement_Unit" />
+                <ScalarProperty Name="Id_SVQ_Headers" ColumnName="Id_SVQ_Headers" />
+                <ScalarProperty Name="Section_Name" ColumnName="Section_Name" />
+                <ScalarProperty Name="Section_Title" ColumnName="Section_Title" />
+                <ScalarProperty Name="Section_Instructions" ColumnName="Section_Instructions" />
+                <ScalarProperty Name="Is_Required_Section" ColumnName="Is_Required_Section" />
+                <ScalarProperty Name="Id_Institutions" ColumnName="Id_Institutions" />
+                <ScalarProperty Name="Survey_Name" ColumnName="Survey_Name" />
+                <ScalarProperty Name="Survey_Code" ColumnName="Survey_Code" />
+                <ScalarProperty Name="Survey_Instructions" ColumnName="Survey_Instructions" />
+                <ScalarProperty Name="Session_Id" ColumnName="Session_Id" />
+                <ScalarProperty Name="Id_SVQ_Questions" ColumnName="Id_SVQ_Questions" />
+                <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sPlsOptionChoices" FunctionName="CobinModel.Store.PlsOptionChoices">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CobinModel.sPlsOptionChoices_Result">
+                <ScalarProperty Name="Id_Option_Groups_Choices" ColumnName="Id_Option_Groups_Choices" />
+                <ScalarProperty Name="Option_Choice_Name" ColumnName="Option_Choice_Name" />
+                <ScalarProperty Name="Option_Choice_Code" ColumnName="Option_Choice_Code" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="iPlsSVQHeaders" FunctionName="CobinModel.Store.PlsSVQHeaders">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CobinModel.iPlsSVQHeaders_Result">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sPlsStaticData" FunctionName="CobinModel.Store.PlsStaticData">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CobinModel.sPlsStaticData_Result">
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="Label" ColumnName="Label" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Cobin" />
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

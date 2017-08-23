@@ -1,0 +1,112 @@
+﻿
+@model IEnumerable<COBIN.DAL.sPlsUsers_Result>
+
+@{
+ViewBag.Title = "Users List";
+int i = 0;
+}
+<table id="tblHead">
+    <tr>
+        <td>
+            <b>Users List</b>
+        </td>
+        <td class="right">
+             @Html.ActionLink(" ", "Create", "Users",null, new { @class = "clsaddnew", title = "Add New User" })
+
+        </td>
+    </tr>
+</table>
+<table>
+    <thead>
+        <tr>
+            <th>
+                S.N.
+            </th>
+            <th>
+                User Name
+            </th>
+            <th>
+                Full Name
+            </th>
+            <th>
+                Mobile No.
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                Operations
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null)
+        {
+            
+            foreach (var item in Model)
+            {
+                string cls;
+                if ((i++ % 2) == 0)
+                {
+                    cls = "class=light";
+                }
+                else
+                {
+                    cls = "class=dark";
+                }
+
+            <tr @cls>
+                <td>
+                    @i
+                </td>
+                <td>
+                    @Html.HiddenFor(modelItem => item.UserId)
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FullName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MobileNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmailAddress)
+                </td>
+                <td>
+                    
+                    @Html.ActionLink("Edit", "Edit", new { id = item.UserId }, new { @class = "clsedit", title = "Edit Details" })
+                    @Html.ActionLink("PwdChange", "ChangePassword", new { id = item.UserId }, new { @class = "clspassword", title = "Change Password" })
+                    @if (item.UserName != "admin")
+                    {
+                
+                        <a href="javascript: DisplayConfirmation('Confirmation', 'Are You Sure you want to delete?', 'confirm', '/Users/Delete/' +@item.UserId);" class="clsdelete" >
+                            Delete</a>
+                    }
+                </td>
+            </tr>
+   
+            }
+        }
+        @if (Model == null || i == 0)
+        {
+         
+            <tr class="nohover">
+                <td colspan="6">
+                    No Records Found.
+                </td>
+            </tr>
+           
+        }
+    </tbody>
+</table>
+@section Scripts {
+    @if (@ViewBag.IsPopup == "y")
+    {
+        <script type="text/javascript">
+            $(window).load(function () {
+                DisplayConfirmation('Information', '@ViewBag.Message', 'info');
+            });
+        </script>
+    }
+}
+
